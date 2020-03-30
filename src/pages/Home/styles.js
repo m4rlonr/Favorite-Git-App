@@ -51,15 +51,15 @@ export default StyleSheet.create({
   },
   textName: {
     fontSize: 15,
-    marginTop: 12,
+    marginTop: 7,
     marginBottom: 12,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   img: {
     alignItems: 'center',
-    width: 280,
-    height: 280,
+    width: 250,
+    height: 250,
     borderRadius: 900,
   },
 });

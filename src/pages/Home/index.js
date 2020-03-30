@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {View, Text, TouchableOpacity, TextInput, Image} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  Image,
+  Alert,
+} from 'react-native';
 
 import axios from 'axios';
 
@@ -13,11 +20,15 @@ export default function Home() {
   const [username, setUsername] = useState('');
 
   const carregar = async () => {
-    const {data: result} = await axios.get(
-      `https://api.github.com/users/${username}`,
-    );
+    try {
+      const {data: result} = await axios.get(
+        `https://api.github.com/users/${username}`,
+      );
 
-    setUser(result);
+      setUser(result);
+    } catch (error) {
+      Alert.alert('Opss!', 'Usuário não existe');
+    }
   };
 
   return (
@@ -34,6 +45,7 @@ export default function Home() {
       </TouchableOpacity>
 
       <Text style={styles.textName}>{user.name || user.login}</Text>
+      <Text style={styles.textName}>{user.repos_url}</Text>
 
       <Image style={styles.img} source={{uri: user.avatar_url}} />
 
