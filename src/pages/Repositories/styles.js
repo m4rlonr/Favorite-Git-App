@@ -14,6 +14,9 @@ export default StyleSheet.create({
   headerText: {
     fontSize: 15,
     color: '#737380',
+    textAlign: 'center',
+    marginTop: 2,
+    marginBottom: 6,
   },
   detailButton: {
     backgroundColor: '#e02041',
@@ -22,6 +25,7 @@ export default StyleSheet.create({
     width: 200,
     borderRadius: 7,
     marginTop: 10,
+    marginBottom: 10,
   },
   detailButtonText: {
     flex: 1,
@@ -35,5 +39,11 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginTop: 20,
+  },
+  repos: {
+    padding: 50,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+    marginBottom: 25,
   },
 });

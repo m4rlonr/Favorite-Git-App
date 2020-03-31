@@ -31,7 +31,7 @@ export default function Favorites() {
         <Text style={styles.headerText}>Repositórios.</Text>
       </View>
 
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.repos}>
         {user.map(dev => (
           <Text key={dev.id} style={styles.headerText}>
             {dev.name}

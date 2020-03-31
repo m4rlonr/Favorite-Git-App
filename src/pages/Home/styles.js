@@ -42,6 +42,8 @@ export default StyleSheet.create({
     borderColor: 'black',
     borderRadius: 8,
     width: 200,
+    height: 35,
+    marginTop: 10,
   },
   btn: {
     backgroundColor: '#e02041',
@@ -68,8 +70,15 @@ export default StyleSheet.create({
   img: {
     alignItems: 'center',
     marginTop: 30,
-    width: 250,
-    height: 250,
+    width: 230,
+    height: 230,
     borderRadius: 900,
+  },
+  bio: {
+    fontSize: 14,
+    color: '#999',
+    marginTop: 5,
+    lineHeight: 18,
+    textAlign: 'center',
   },
 });
