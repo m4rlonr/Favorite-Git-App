@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 
-import axios from 'axios';
+import api from '../../services/api';
 
 import styles from './styles';
 
@@ -21,9 +21,7 @@ export default function Home() {
 
   const carregar = async () => {
     try {
-      const {data: result} = await axios.get(
-        `https://api.github.com/users/${username}`,
-      );
+      const {data: result} = await api.get(`users/${username}`);
       setUser(result);
     } catch (error) {
       Alert.alert('Opss!', 'Usuário não existe');
