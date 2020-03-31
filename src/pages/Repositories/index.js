@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text, TouchableOpacity} from 'react-native';
+
+import api from '../../services/api';
 
 import styles from './styles';
 
 export default function Favorites() {
   const navigation = useNavigation();
+
+  const [user, setUser] = useState([]);
+
+  const carregar = async () => {
+    try {
+      const {data: result} = await api.get('users/mchdouglas/repos');
+      setUser(result);
+    } catch (error) {
+      alert('Opss!', 'Usuário não existe');
+      console.log(error);
+    }
+  };
+  carregar();
 
   return (
     <View style={styles.container}>
@@ -24,6 +39,9 @@ export default function Favorites() {
         onPress={() => navigation.navigate('Favorites')}>
         <Text style={styles.detailButtonText}>Adicionar Favoritos</Text>
       </TouchableOpacity>
+      {user.map(dev => (
+        <Text style={styles.headerText}>{dev.name}</Text>
+      ))}
     </View>
   );
 }

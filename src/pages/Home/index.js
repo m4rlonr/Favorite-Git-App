@@ -34,7 +34,7 @@ export default function Home() {
       return (
         <TouchableOpacity
           style={styles.detailButton}
-          onPress={() => navigation.navigate('Repositories')}>
+          onPress={() => navigation.navigate('Repositories', username)}>
           <Text style={styles.detailButtonText}>Ir aos repositórios</Text>
         </TouchableOpacity>
       );
