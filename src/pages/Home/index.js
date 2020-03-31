@@ -24,7 +24,7 @@ export default function Home() {
       const {data: result} = await axios.get(
         `https://api.github.com/users/${username}`,
       );
-
+      console.log(result);
       setUser(result);
     } catch (error) {
       Alert.alert('Opss!', 'Usuário não existe');
@@ -44,10 +44,11 @@ export default function Home() {
         <Text style={styles.textBuscar}>Buscar</Text>
       </TouchableOpacity>
 
-      <Text style={styles.textName}>{user.name || user.login}</Text>
-      <Text style={styles.textName}>{user.repos_url}</Text>
-
       <Image style={styles.img} source={{uri: user.avatar_url}} />
+
+      <Text style={styles.textName}>{user.repos_url}</Text>
+      <Text style={styles.textName}>{user.name || user.login}</Text>
+      <Text style={styles.textName}>{user.bio}</Text>
 
       <TouchableOpacity
         style={styles.detailButton}

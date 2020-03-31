@@ -38,6 +38,10 @@ export default StyleSheet.create({
   },
   input: {
     textAlign: 'center',
+    backgroundColor: '#fff',
+    borderColor: 'black',
+    borderRadius: 8,
+    width: 200,
   },
   btn: {
     backgroundColor: '#e02041',
@@ -63,6 +67,7 @@ export default StyleSheet.create({
   },
   img: {
     alignItems: 'center',
+    marginTop: 30,
     width: 250,
     height: 250,
     borderRadius: 900,
