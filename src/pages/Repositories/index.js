@@ -17,7 +17,7 @@ export default function Favorites() {
     try {
       const {data: result} = await api.get(`users/${userName.login}/repos`);
       setUser(result);
-      console.log('passou');
+      // console.log('passou');
     } catch (error) {
       // alert('Opss!', 'Usuário não existe');
       console.log(error);
