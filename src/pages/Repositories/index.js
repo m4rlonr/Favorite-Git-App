@@ -23,10 +23,12 @@ export default function Favorites() {
   carregar();
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Aqui ficarão os repositórios.</Text>
-      </View>
+    <View style={styles.dados}>
+      {user.map(dev => (
+        <Text key={dev.id} style={styles.headerText}>
+          {dev.name}
+        </Text>
+      ))}
 
       <TouchableOpacity
         style={styles.detailButton}
@@ -39,11 +41,6 @@ export default function Favorites() {
         onPress={() => navigation.navigate('Favorites')}>
         <Text style={styles.detailButtonText}>Adicionar Favoritos</Text>
       </TouchableOpacity>
-      {user.map(dev => (
-        <Text key={dev.id} style={styles.headerText}>
-          {dev.name}
-        </Text>
-      ))}
     </View>
   );
 }

@@ -31,4 +31,9 @@ export default StyleSheet.create({
     color: '#fff',
     alignItems: 'center',
   },
+  dados: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 20,
+  },
 });
