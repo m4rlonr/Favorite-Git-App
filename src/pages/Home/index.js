@@ -58,7 +58,9 @@ export default function Home() {
       <Image style={styles.img} source={{uri: user.avatar_url}} />
 
       <Text style={styles.textName}>{user.name || user.login}</Text>
-      <Text style={styles.textName}>{user.bio}</Text>
+      <Text numberOfLines={5} style={styles.bio}>
+        {user.bio}
+      </Text>
 
       {ButtonRepos()}
 
