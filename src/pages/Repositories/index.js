@@ -40,7 +40,9 @@ export default function Favorites() {
         <Text style={styles.detailButtonText}>Adicionar Favoritos</Text>
       </TouchableOpacity>
       {user.map(dev => (
-        <Text style={styles.headerText}>{dev.name}</Text>
+        <Text key={dev.id} style={styles.headerText}>
+          {dev.name}
+        </Text>
       ))}
     </View>
   );
