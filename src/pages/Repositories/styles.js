@@ -41,7 +41,7 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   repos: {
-    padding: 24,
+    padding: 50,
     borderRadius: 8,
     backgroundColor: '#FFF',
     marginBottom: 25,
