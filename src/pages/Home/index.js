@@ -24,12 +24,24 @@ export default function Home() {
       const {data: result} = await axios.get(
         `https://api.github.com/users/${username}`,
       );
-      console.log(result);
       setUser(result);
     } catch (error) {
       Alert.alert('Opss!', 'Usuário não existe');
+      console.log(error);
     }
   };
+
+  function ButtonRepos() {
+    if (user.name) {
+      return (
+        <TouchableOpacity
+          style={styles.detailButton}
+          onPress={() => navigation.navigate('Repositories')}>
+          <Text style={styles.detailButtonText}>Ir aos repositórios</Text>
+        </TouchableOpacity>
+      );
+    }
+  }
 
   return (
     <View style={styles.dados}>
@@ -46,15 +58,10 @@ export default function Home() {
 
       <Image style={styles.img} source={{uri: user.avatar_url}} />
 
-      {/* <Text style={styles.textName}>{user.repos_url}</Text> */}
       <Text style={styles.textName}>{user.name || user.login}</Text>
       <Text style={styles.textName}>{user.bio}</Text>
 
-      <TouchableOpacity
-        style={styles.detailButton}
-        onPress={() => navigation.navigate('Repositories')}>
-        <Text style={styles.detailButtonText}>Ir aos repositórios</Text>
-      </TouchableOpacity>
+      {ButtonRepos()}
 
       <TouchableOpacity
         style={styles.detailButton}

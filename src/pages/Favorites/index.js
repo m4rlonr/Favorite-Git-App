@@ -15,8 +15,8 @@ export default function Favorites() {
 
       <TouchableOpacity
         style={styles.detailButton}
-        onPress={() => navigation.navigate('Repositories')}>
-        <Text style={styles.detailButtonText}>Ir para repositórios</Text>
+        onPress={() => navigation.goBack()}>
+        <Text style={styles.detailButtonText}>Voltar</Text>
       </TouchableOpacity>
     </View>
   );
