@@ -10,13 +10,19 @@ export default function Favorites() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Aqui ficarão os favoritos.</Text>
+        <Text style={styles.headerText}>Aqui ficarão os repositórios.</Text>
       </View>
 
       <TouchableOpacity
         style={styles.detailButton}
-        onPress={() => navigation.navigate('Repositories')}>
-        <Text style={styles.detailButtonText}>Ir para repositórios</Text>
+        onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.detailButtonText}>Ir para home</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.detailButton}
+        onPress={() => navigation.navigate('Favorites')}>
+        <Text style={styles.detailButtonText}>Adicionar Favoritos</Text>
       </TouchableOpacity>
     </View>
   );

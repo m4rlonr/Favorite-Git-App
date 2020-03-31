@@ -46,14 +46,20 @@ export default function Home() {
 
       <Image style={styles.img} source={{uri: user.avatar_url}} />
 
-      <Text style={styles.textName}>{user.repos_url}</Text>
+      {/* <Text style={styles.textName}>{user.repos_url}</Text> */}
       <Text style={styles.textName}>{user.name || user.login}</Text>
       <Text style={styles.textName}>{user.bio}</Text>
 
       <TouchableOpacity
         style={styles.detailButton}
+        onPress={() => navigation.navigate('Repositories')}>
+        <Text style={styles.detailButtonText}>Ir aos repositórios</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.detailButton}
         onPress={() => navigation.navigate('Favorites')}>
-        <Text style={styles.detailButtonText}>Salvar nos favoritos</Text>
+        <Text style={styles.detailButtonText}>Ir aos Favoritos</Text>
       </TouchableOpacity>
     </View>
   );

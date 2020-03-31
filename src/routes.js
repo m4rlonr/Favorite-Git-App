@@ -5,14 +5,16 @@ import React from 'react';
 const Stack = createStackNavigator();
 
 // import Instrucoes from './pages/Intrucoes';
-import Favorites from './pages/Favorites';
 import Home from './pages/Home';
+import Repositories from './pages/Repositories';
+import Favorites from './pages/Favorites';
 
 export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Repositories" component={Repositories} />
         <Stack.Screen name="Favorites" component={Favorites} />
       </Stack.Navigator>
     </NavigationContainer>
