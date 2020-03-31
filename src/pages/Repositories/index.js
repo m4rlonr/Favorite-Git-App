@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 
 import api from '../../services/api';
 
@@ -8,15 +8,18 @@ import styles from './styles';
 
 export default function Favorites() {
   const navigation = useNavigation();
+  const route = useRoute();
 
+  const userName = route.params.user;
   const [user, setUser] = useState([]);
 
   const carregar = async () => {
     try {
-      const {data: result} = await api.get('users/mchdouglas/repos');
+      const {data: result} = await api.get(`users/${userName.login}/repos`);
       setUser(result);
+      console.log('passou');
     } catch (error) {
-      alert('Opss!', 'Usuário não existe');
+      // alert('Opss!', 'Usuário não existe');
       console.log(error);
     }
   };
@@ -24,11 +27,17 @@ export default function Favorites() {
 
   return (
     <View style={styles.dados}>
-      {user.map(dev => (
-        <Text key={dev.id} style={styles.headerText}>
-          {dev.name}
-        </Text>
-      ))}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Repositórios.</Text>
+      </View>
+
+      <ScrollView>
+        {user.map(dev => (
+          <Text key={dev.id} style={styles.headerText}>
+            {dev.name}
+          </Text>
+        ))}
+      </ScrollView>
 
       <TouchableOpacity
         style={styles.detailButton}
