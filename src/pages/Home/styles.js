@@ -81,4 +81,14 @@ export default StyleSheet.create({
     lineHeight: 18,
     textAlign: 'center',
   },
+  fadingContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: 'powderblue',
+  },
+  imgAnimated: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
