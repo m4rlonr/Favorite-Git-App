@@ -29,7 +29,7 @@ export default StyleSheet.create({
   },
   detailButtonText: {
     flex: 1,
-    textAlign: 'center',
+    textAlign: 'left',
     fontSize: 18,
     fontWeight: 'bold',
     color: '#fff',
@@ -48,6 +48,19 @@ export default StyleSheet.create({
     width: 330,
   },
   WebView: {
-    marginTop: 20,
+    marginTop: 0,
+  },
+  viewMap: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 25,
+  },
+  viewMapButton: {
+    backgroundColor: 'black',
+    borderRadius: 2,
+  },
+  viewMapButtonText: {
+    color: 'white',
   },
 });

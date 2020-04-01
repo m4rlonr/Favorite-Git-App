@@ -33,12 +33,20 @@ export default function Favorites() {
 
       <ScrollView showsVerticalScrollIndicator={false} style={styles.repos}>
         {user.map(dev => (
-          <Text
-            key={dev.id}
-            style={styles.headerText}
-            onPress={() => navigation.navigate('detailRepo', {dev, userName})}>
-            {dev.name}
-          </Text>
+          <View key={dev.id} style={styles.viewMap}>
+            <Text
+              style={styles.headerText}
+              onPress={() =>
+                navigation.navigate('detailRepo', {dev, userName})
+              }>
+              {dev.name}
+            </Text>
+            <TouchableOpacity
+              style={styles.viewMapButton}
+              onPress={() => navigation.navigate('Favorites')}>
+              <Text style={styles.viewMapButtonText}>Add</Text>
+            </TouchableOpacity>
+          </View>
         ))}
       </ScrollView>
 
@@ -46,12 +54,6 @@ export default function Favorites() {
         style={styles.detailButton}
         onPress={() => navigation.navigate('Home')}>
         <Text style={styles.detailButtonText}>Ir para home</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.detailButton}
-        onPress={() => navigation.navigate('Favorites')}>
-        <Text style={styles.detailButtonText}>Adicionar Favoritos</Text>
       </TouchableOpacity>
     </View>
   );
