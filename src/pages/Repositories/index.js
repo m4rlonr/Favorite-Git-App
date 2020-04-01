@@ -1,13 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Linking,
-  WebView,
-} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 
 import api from '../../services/api';
 
@@ -20,14 +13,18 @@ export default function Favorites() {
   const userName = route.params.user;
   const [user, setUser] = useState([]);
 
-  async function carregar() {
-    try {
-      const {data: result} = await api.get(`users/${userName.login}/repos`);
-      setUser(result);
-    } catch (error) {
-      alert('[ERRO] - Tente novamente');
+  useEffect(() => {
+    async function carregar() {
+      try {
+        const {data: result} = await api.get(`users/${userName.login}/repos`);
+        console.log('passou');
+        setUser(result);
+      } catch (error) {
+        alert('[ERRO] - Tente novamente');
+      }
     }
-  }
+    carregar();
+  }, [userName.login]);
 
   return (
     <View style={styles.dados}>
@@ -45,10 +42,6 @@ export default function Favorites() {
           </Text>
         ))}
       </ScrollView>
-
-      <TouchableOpacity style={styles.detailButton} onPress={carregar}>
-        <Text style={styles.detailButtonText}>Carregar</Text>
-      </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.detailButton}
