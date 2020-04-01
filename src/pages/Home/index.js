@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {
   View,
@@ -7,6 +7,7 @@ import {
   TextInput,
   Image,
   Alert,
+  Animated,
 } from 'react-native';
 
 import api from '../../services/api';
@@ -23,6 +24,12 @@ export default function Home() {
     try {
       const {data: result} = await api.get(`users/${username}`);
       setUser(result);
+<<<<<<< HEAD
+=======
+      fadeIn();
+
+      // console.log(result.login);
+>>>>>>> 4292818d22f7ee39694f327e15f9c7060269f41e
     } catch (error) {
       Alert.alert('Opss!', 'Usuário não existe');
       console.log(error);
@@ -41,6 +48,16 @@ export default function Home() {
     }
   }
 
+  const fadeAnim = useRef(new Animated.Value(0.3)).current;
+
+  function fadeIn() {
+    fadeAnim.setValue(0.3);
+    Animated.spring(fadeAnim, {
+      toValue: 1,
+      friction: 1,
+      useNativeDriver: false,
+    }).start();
+  }
   return (
     <View style={styles.dados}>
       <Text>Digite o usuário do github abaixo:</Text>
@@ -54,8 +71,15 @@ export default function Home() {
         <Text style={styles.textBuscar}>Buscar</Text>
       </TouchableOpacity>
 
-      <Image style={styles.img} source={{uri: user.avatar_url}} />
-
+      <Animated.Image
+        style={{
+          width: 227,
+          marginTop: 20,
+          height: 230,
+          transform: [{scale: fadeAnim}],
+        }}
+        source={{uri: user.avatar_url}}
+      />
       <Text style={styles.textName}>{user.name || user.login}</Text>
       <Text numberOfLines={5} style={styles.bio}>
         {user.bio}
