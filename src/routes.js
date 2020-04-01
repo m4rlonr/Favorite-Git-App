@@ -8,6 +8,7 @@ const Stack = createStackNavigator();
 import Home from './pages/Home';
 import Repositories from './pages/Repositories';
 import Favorites from './pages/Favorites';
+import detailRepo from './pages/detailRepo';
 
 export default function Routes() {
   return (
@@ -16,6 +17,7 @@ export default function Routes() {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Repositories" component={Repositories} />
         <Stack.Screen name="Favorites" component={Favorites} />
+        <Stack.Screen name="detailRepo" component={detailRepo} />
       </Stack.Navigator>
     </NavigationContainer>
   );
