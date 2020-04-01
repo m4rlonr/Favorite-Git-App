@@ -24,12 +24,6 @@ export default function Home() {
     try {
       const {data: result} = await api.get(`users/${username}`);
       setUser(result);
-<<<<<<< HEAD
-=======
-      fadeIn();
-
-      // console.log(result.login);
->>>>>>> 4292818d22f7ee39694f327e15f9c7060269f41e
     } catch (error) {
       Alert.alert('Opss!', 'Usuário não existe');
       console.log(error);

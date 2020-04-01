@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView, Linking} from 'react-native';
 
 import api from '../../services/api';
 
@@ -22,6 +22,10 @@ export default function Favorites() {
     }
   }
 
+  async function OpenRepo(dev) {
+    Linking.openURL(dev.html_url);
+  }
+
   return (
     <View style={styles.dados}>
       <View style={styles.header}>
@@ -30,7 +34,7 @@ export default function Favorites() {
 
       <ScrollView showsVerticalScrollIndicator={false} style={styles.repos}>
         {user.map(dev => (
-          <Text key={dev.id} style={styles.headerText}>
+          <Text key={dev.id} style={styles.headerText} onPress={OpenRepo(dev)}>
             {dev.name}
           </Text>
         ))}
