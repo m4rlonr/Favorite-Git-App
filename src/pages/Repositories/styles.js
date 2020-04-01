@@ -45,5 +45,6 @@ export default StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#FFF',
     marginBottom: 25,
+    width: 330,
   },
 });

@@ -13,17 +13,14 @@ export default function Favorites() {
   const userName = route.params.user;
   const [user, setUser] = useState([]);
 
-  const carregar = async () => {
+  async function carregar() {
     try {
       const {data: result} = await api.get(`users/${userName.login}/repos`);
       setUser(result);
-      // console.log('passou');
     } catch (error) {
-      // alert('Opss!', 'Usuário não existe');
-      console.log(error);
+      alert('[ERRO] - Tente novamente');
     }
-  };
-  carregar();
+  }
 
   return (
     <View style={styles.dados}>
@@ -38,6 +35,10 @@ export default function Favorites() {
           </Text>
         ))}
       </ScrollView>
+
+      <TouchableOpacity style={styles.detailButton} onPress={carregar}>
+        <Text style={styles.detailButtonText}>Carregar</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.detailButton}
