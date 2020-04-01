@@ -1,13 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Linking,
-  WebView,
-} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 
 import api from '../../services/api';
 
