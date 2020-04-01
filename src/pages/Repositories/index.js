@@ -17,7 +17,6 @@ export default function Favorites() {
     async function carregar() {
       try {
         const {data: result} = await api.get(`users/${userName.login}/repos`);
-        console.log('passou');
         setUser(result);
       } catch (error) {
         alert('[ERRO] - Tente novamente');
