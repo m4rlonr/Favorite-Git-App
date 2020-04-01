@@ -32,7 +32,7 @@ export default function Home() {
   }
 
   function ButtonRepos() {
-    if (user.name) {
+    if (user.login) {
       return (
         <TouchableOpacity
           style={styles.detailButton}
