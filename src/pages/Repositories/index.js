@@ -42,9 +42,14 @@ export default function Favorites() {
             style={styles.headerText}
             onPress={() => {
               return (
-                <WebView source={{uri: dev.html_url}} style={{marginTop: 20}} />
-                // Linking.openURL(dev.html_url);
+                <WebView
+                  style={styles.WebView}
+                  source={{
+                    uri: 'https://www.google.com',
+                  }}
+                />
               );
+              // Linking.openURL(dev.html_url);
             }}>
             {dev.name}
           </Text>

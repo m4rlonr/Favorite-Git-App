@@ -47,4 +47,7 @@ export default StyleSheet.create({
     marginBottom: 25,
     width: 330,
   },
+  WebView: {
+    marginTop: 20,
+  },
 });
