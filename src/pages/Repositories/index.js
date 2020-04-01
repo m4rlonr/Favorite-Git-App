@@ -40,12 +40,7 @@ export default function Favorites() {
           <Text
             key={dev.id}
             style={styles.headerText}
-            onPress={() => {
-              return (
-                <WebView source={{uri: dev.html_url}} style={{marginTop: 20}} />
-                // Linking.openURL(dev.html_url);
-              );
-            }}>
+            onPress={() => navigation.navigate('detailRepo', {dev, userName})}>
             {dev.name}
           </Text>
         ))}
