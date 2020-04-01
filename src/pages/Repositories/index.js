@@ -24,6 +24,7 @@ export default function Favorites() {
 
   async function OpenRepo(dev) {
     Linking.openURL(dev.html_url);
+    // Adicionar aqui webView
   }
 
   return (
