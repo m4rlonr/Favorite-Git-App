@@ -34,18 +34,15 @@ export default function Favorites() {
       name: dev.name,
       url: dev.html_url,
     };
-
+    // Fazer validação ao inserir
     try {
       await AsyncStorage.setItem(`${i}`, JSON.stringify(item));
       Alert.alert('Adicionado com Sucesso');
     } catch (error) {
       console.log(error);
     }
-
-    const retrievedItem = await AsyncStorage.getItem(`${i}`);
-    const ItemG = JSON.parse(retrievedItem);
-    console.log(ItemG);
-    i = i + 1;
+    console.log(i);
+    i += 1;
   };
 
   return (
