@@ -8,14 +8,13 @@ import api from '../../services/api';
 
 import styles from './styles';
 
+let i = 0;
 export default function Favorites() {
   const navigation = useNavigation();
   const route = useRoute();
 
   const userName = route.params.user;
   const [user, setUser] = useState([]);
-
-  let i = 0;
 
   useEffect(() => {
     async function carregar() {
