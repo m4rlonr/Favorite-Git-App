@@ -15,6 +15,19 @@ export default StyleSheet.create({
     fontSize: 15,
     color: '#737380',
   },
+  repos: {
+    padding: 50,
+    borderRadius: 8,
+    backgroundColor: '#FFF',
+    marginBottom: 25,
+    width: 330,
+  },
+  viewMap: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 25,
+  },
   actions: {
     marginTop: 16,
     flexDirection: 'row',

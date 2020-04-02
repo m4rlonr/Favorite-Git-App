@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -15,35 +15,39 @@ export default function Favorites() {
   const userName = route.params.user;
   const [user, setUser] = useState([]);
 
+  let i = 0;
+
   useEffect(() => {
     async function carregar() {
       try {
         const {data: result} = await api.get(`users/${userName.login}/repos`);
         setUser(result);
       } catch (error) {
-        // eslint-disable-next-line no-alert
-        alert('[ERRO] - Tente novamente');
+        Alert.alert('[ERRO] - Tente novamente');
       }
     }
     carregar();
   }, [userName.login]);
 
-  async function setStore(dev) {
+  const setStore = async dev => {
+    let item = {
+      id: i,
+      name: dev.name,
+      url: dev.html_url,
+    };
+
     try {
-      // await AsyncStorage.setItem('@MySuperStore:key', dev.html_url);
-      await AsyncStorage.setItem(dev.name, dev.html_url);
+      await AsyncStorage.setItem(`${i}`, JSON.stringify(item));
+      Alert.alert('Adicionado com Sucesso');
     } catch (error) {
       console.log(error);
     }
-    try {
-      const value = await AsyncStorage.getItem('@MySuperStore:key');
-      if (value !== null) {
-        console.log(value);
-      }
-    } catch (error) {
-      // Error retrieving data
-    }
-  }
+
+    const retrievedItem = await AsyncStorage.getItem(`${i}`);
+    const ItemG = JSON.parse(retrievedItem);
+    console.log(ItemG);
+    i = i + 1;
+  };
 
   return (
     <View style={styles.dados}>
@@ -73,11 +77,20 @@ export default function Favorites() {
         ))}
       </ScrollView>
 
-      <TouchableOpacity
-        style={styles.action}
-        onPress={() => navigation.navigate('Home')}>
-        <Icon name="home" size={30} color="#fff" />
-      </TouchableOpacity>
+      <View style={styles.actions}>
+        <TouchableOpacity
+          style={styles.action}
+          onPress={() => navigation.navigate('Home')}>
+          <Icon name="home" size={30} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.action}
+          onPress={() => navigation.navigate('Favorites')}>
+          <Icon name="star" size={20} color="#fff" />
+          <Icon name="star" size={30} color="#fff" />
+          <Icon name="star" size={20} color="#fff" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

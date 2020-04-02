@@ -34,6 +34,11 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 25,
   },
+  actions: {
+    marginTop: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   action: {
     backgroundColor: '#e02041',
     alignItems: 'center',
