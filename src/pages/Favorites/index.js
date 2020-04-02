@@ -11,7 +11,6 @@ const lista = [];
 async function getStorage() {
   try {
     const Allkeys = await AsyncStorage.getAllKeys();
-
     Allkeys.map(key => {
       setList(key);
     });
@@ -31,7 +30,6 @@ export default function Favorites() {
   async function removeItem(id) {
     Alert.alert('Removendo o item');
     await AsyncStorage.removeItem(`${id}`);
-    getStorage();
   }
 
   return (
