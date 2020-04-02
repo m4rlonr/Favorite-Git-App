@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import api from '../../services/api';
 
@@ -19,6 +20,7 @@ export default function Favorites() {
         const {data: result} = await api.get(`users/${userName.login}/repos`);
         setUser(result);
       } catch (error) {
+        // eslint-disable-next-line no-alert
         alert('[ERRO] - Tente novamente');
       }
     }
@@ -41,10 +43,8 @@ export default function Favorites() {
               }>
               {dev.name}
             </Text>
-            <TouchableOpacity
-              style={styles.viewMapButton}
-              onPress={() => navigation.navigate('Favorites')}>
-              <Text style={styles.viewMapButtonText}>Add</Text>
+            <TouchableOpacity>
+              <Icon name="star" size={18} color="#000" />
             </TouchableOpacity>
           </View>
         ))}
@@ -53,7 +53,7 @@ export default function Favorites() {
       <TouchableOpacity
         style={styles.detailButton}
         onPress={() => navigation.navigate('Home')}>
-        <Text style={styles.detailButtonText}>Ir para home</Text>
+        <Icon name="home" size={30} color="#fff" />
       </TouchableOpacity>
     </View>
   );

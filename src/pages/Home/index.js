@@ -5,10 +5,10 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
-  Image,
   Alert,
   Animated,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import api from '../../services/api';
 
@@ -35,9 +35,10 @@ export default function Home() {
     if (user.login) {
       return (
         <TouchableOpacity
-          style={styles.detailButton}
+          style={styles.action}
           onPress={() => navigation.navigate('Repositories', {user})}>
-          <Text style={styles.detailButtonText}>Ir aos repositórios</Text>
+          {/* <Text style={styles.detailButtonText}>Ir aos repositórios</Text> */}
+          <Icon name="folder-open" size={30} color="#fff" />
         </TouchableOpacity>
       );
     }
@@ -63,15 +64,17 @@ export default function Home() {
         onChangeText={setUsername}
       />
       <TouchableOpacity style={styles.btn} onPress={carregar}>
-        <Text style={styles.textBuscar}>Buscar</Text>
+        <Icon name="search" size={30} color="#fff" />
       </TouchableOpacity>
 
       <Animated.Image
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           width: 227,
           marginTop: 20,
           height: 230,
           transform: [{scale: fadeAnim}],
+          borderRadius: 250,
         }}
         source={{uri: user.avatar_url}}
       />
@@ -80,13 +83,17 @@ export default function Home() {
         {user.bio}
       </Text>
 
-      {ButtonRepos()}
+      <View style={styles.actions}>
+        {ButtonRepos()}
 
-      <TouchableOpacity
-        style={styles.detailButton}
-        onPress={() => navigation.navigate('Favorites')}>
-        <Text style={styles.detailButtonText}>Ir aos Favoritos</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.action}
+          onPress={() => navigation.navigate('Favorites')}>
+          <Icon name="star" size={20} color="#fff" />
+          <Icon name="star" size={30} color="#fff" />
+          <Icon name="star" size={20} color="#fff" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

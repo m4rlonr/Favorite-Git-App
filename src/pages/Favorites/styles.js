@@ -31,4 +31,19 @@ export default StyleSheet.create({
     color: '#fff',
     alignItems: 'center',
   },
+  actions: {
+    marginTop: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  action: {
+    backgroundColor: '#e02041',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    margin: 10,
+    borderRadius: 8,
+    height: 35,
+    width: '35%',
+  },
 });

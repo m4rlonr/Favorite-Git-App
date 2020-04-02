@@ -51,6 +51,7 @@ export default StyleSheet.create({
     height: 30,
     borderRadius: 7,
     marginTop: 10,
+    alignItems: 'center',
   },
   textBuscar: {
     flex: 1,
@@ -67,13 +68,6 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  img: {
-    alignItems: 'center',
-    marginTop: 30,
-    width: 230,
-    height: 230,
-    borderRadius: 900,
-  },
   bio: {
     fontSize: 14,
     color: '#999',
@@ -86,9 +80,19 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: 'powderblue',
   },
-  imgAnimated: {
-    flex: 1,
-    justifyContent: 'center',
+  actions: {
+    marginTop: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  action: {
+    backgroundColor: '#e02041',
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    margin: 10,
+    borderRadius: 8,
+    height: 35,
+    width: '35%',
   },
 });
