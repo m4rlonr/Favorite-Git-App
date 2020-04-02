@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import api from '../../services/api';
@@ -27,6 +28,23 @@ export default function Favorites() {
     carregar();
   }, [userName.login]);
 
+  async function setStore(dev) {
+    try {
+      // await AsyncStorage.setItem('@MySuperStore:key', dev.html_url);
+      await AsyncStorage.setItem(dev.name, dev.html_url);
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      const value = await AsyncStorage.getItem('@MySuperStore:key');
+      if (value !== null) {
+        console.log(value);
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+  }
+
   return (
     <View style={styles.dados}>
       <View style={styles.header}>
@@ -44,7 +62,12 @@ export default function Favorites() {
               {dev.name}
             </Text>
             <TouchableOpacity>
-              <Icon name="star" size={18} color="#000" />
+              <Icon
+                name="star"
+                size={18}
+                color="#000"
+                onPress={() => setStore(dev)}
+              />
             </TouchableOpacity>
           </View>
         ))}
