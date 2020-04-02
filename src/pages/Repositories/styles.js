@@ -1,11 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 40,
-  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -17,23 +12,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     marginTop: 2,
     marginBottom: 6,
-  },
-  detailButton: {
-    backgroundColor: '#e02041',
-    alignItems: 'center',
-    height: 30,
-    width: 200,
-    borderRadius: 7,
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  detailButtonText: {
-    flex: 1,
-    textAlign: 'left',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-    alignItems: 'center',
   },
   dados: {
     flex: 1,
@@ -56,11 +34,14 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 25,
   },
-  viewMapButton: {
-    backgroundColor: 'black',
-    borderRadius: 2,
-  },
-  viewMapButtonText: {
-    color: 'white',
+  action: {
+    backgroundColor: '#e02041',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    margin: 10,
+    borderRadius: 8,
+    height: 35,
+    width: '35%',
   },
 });

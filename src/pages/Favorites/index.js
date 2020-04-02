@@ -8,7 +8,7 @@ import styles from './styles';
 export default function Favorites() {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <View style={styles.dados}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Aqui ficarão os favoritos.</Text>
       </View>

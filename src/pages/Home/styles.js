@@ -1,36 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 40,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  headerText: {
-    fontSize: 15,
-    color: '#737380',
-  },
-  detailButton: {
-    backgroundColor: '#e02041',
-    alignItems: 'center',
-    height: 30,
-    width: 200,
-    borderRadius: 7,
-    marginTop: 10,
-  },
-  detailButtonText: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-    alignItems: 'center',
-  },
   dados: {
     flex: 1,
     alignItems: 'center',
@@ -45,24 +15,8 @@ export default StyleSheet.create({
     height: 35,
     marginTop: 10,
   },
-  btn: {
-    backgroundColor: '#e02041',
-    width: 90,
-    height: 30,
-    borderRadius: 7,
-    marginTop: 10,
-    alignItems: 'center',
-  },
-  textBuscar: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-    alignItems: 'center',
-  },
   textName: {
-    fontSize: 15,
+    fontSize: 20,
     marginTop: 7,
     marginBottom: 12,
     fontWeight: 'bold',
@@ -74,11 +28,6 @@ export default StyleSheet.create({
     marginTop: 5,
     lineHeight: 18,
     textAlign: 'center',
-  },
-  fadingContainer: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    backgroundColor: 'powderblue',
   },
   actions: {
     marginTop: 16,

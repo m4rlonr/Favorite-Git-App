@@ -51,7 +51,7 @@ export default function Favorites() {
       </ScrollView>
 
       <TouchableOpacity
-        style={styles.detailButton}
+        style={styles.action}
         onPress={() => navigation.navigate('Home')}>
         <Icon name="home" size={30} color="#fff" />
       </TouchableOpacity>

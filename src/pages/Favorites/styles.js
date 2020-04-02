@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
-  container: {
+  dados: {
     flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 40,
+    alignItems: 'center',
+    marginTop: 20,
   },
   header: {
     flexDirection: 'row',
@@ -14,22 +14,6 @@ export default StyleSheet.create({
   headerText: {
     fontSize: 15,
     color: '#737380',
-  },
-  detailButton: {
-    backgroundColor: '#e02041',
-    alignItems: 'center',
-    height: 30,
-    width: 200,
-    borderRadius: 7,
-    marginTop: 10,
-  },
-  detailButtonText: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#fff',
-    alignItems: 'center',
   },
   actions: {
     marginTop: 16,

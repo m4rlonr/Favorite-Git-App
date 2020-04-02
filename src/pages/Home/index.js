@@ -63,7 +63,7 @@ export default function Home() {
         value={username}
         onChangeText={setUsername}
       />
-      <TouchableOpacity style={styles.btn} onPress={carregar}>
+      <TouchableOpacity style={styles.action} onPress={carregar}>
         <Icon name="search" size={30} color="#fff" />
       </TouchableOpacity>
 
