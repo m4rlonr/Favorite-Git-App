@@ -44,4 +44,8 @@ export default StyleSheet.create({
     height: 35,
     width: '35%',
   },
+  Icone_avatar: {
+    marginTop: 20,
+    height: 230,
+  },
 });

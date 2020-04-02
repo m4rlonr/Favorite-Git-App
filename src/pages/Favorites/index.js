@@ -13,21 +13,11 @@ export default function Favorites() {
         <Text style={styles.headerText}>Aqui ficarão os favoritos.</Text>
       </View>
 
-      <View style={styles.actions}>
-        <TouchableOpacity
-          style={styles.action}
-          onPress={() => navigation.navigate('Home')}>
-          <Icon name="home" size={30} color="#fff" />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.action}
-          onPress={() => navigation.navigate('Favorites')}>
-          <Icon name="star" size={20} color="#fff" />
-          <Icon name="star" size={30} color="#fff" />
-          <Icon name="star" size={20} color="#fff" />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={styles.action}
+        onPress={() => navigation.goBack()}>
+        <Icon name="arrow-left" size={30} color="#fff" />
+      </TouchableOpacity>
     </View>
   );
 }

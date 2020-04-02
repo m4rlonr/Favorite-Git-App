@@ -43,6 +43,32 @@ export default function Home() {
       );
     }
   }
+  function avatar() {
+    if (user.avatar_url) {
+      return (
+        <Animated.Image
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            width: 227,
+            marginTop: 20,
+            height: 230,
+            transform: [{scale: fadeAnim}],
+            borderRadius: 250,
+          }}
+          source={{uri: user.avatar_url}}
+        />
+      );
+    } else {
+      return (
+        <Icon
+          name="user-circle-o"
+          color="grey"
+          size={210}
+          style={styles.Icone_avatar}
+        />
+      );
+    }
+  }
 
   const fadeAnim = useRef(new Animated.Value(0.3)).current;
 
@@ -67,17 +93,8 @@ export default function Home() {
         <Icon name="search" size={30} color="#fff" />
       </TouchableOpacity>
 
-      <Animated.Image
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          width: 227,
-          marginTop: 20,
-          height: 230,
-          transform: [{scale: fadeAnim}],
-          borderRadius: 250,
-        }}
-        source={{uri: user.avatar_url}}
-      />
+      {avatar()}
+
       <Text style={styles.textName}>{user.name || user.login}</Text>
       <Text numberOfLines={5} style={styles.bio}>
         {user.bio}
