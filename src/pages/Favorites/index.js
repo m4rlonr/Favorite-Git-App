@@ -20,6 +20,7 @@ async function getStorage() {
     console.log(error);
   }
 }
+getStorage();
 
 async function setList(key) {
   const retrievedItem = await AsyncStorage.getItem(key);
@@ -30,6 +31,8 @@ async function setList(key) {
 async function clearStore() {
   await AsyncStorage.clear();
 }
+getStorage();
+console.log(lista);
 
 export default function Favorites() {
   return (
@@ -40,10 +43,13 @@ export default function Favorites() {
 
       <ScrollView showsVerticalScrollIndicator={false} style={styles.repos}>
         {lista.map(item => (
-          <View style={styles.viewMap}>
+          <View key={item.id} style={styles.viewMap}>
             <Text style={styles.headerText} onPress={() => {}}>
-              {item}
+              {item.name}
             </Text>
+            <TouchableOpacity>
+              <Icon name="star" size={18} color="#000" onPress={() => {}}/>
+            </TouchableOpacity>
           </View>
         ))}
       </ScrollView>
@@ -54,9 +60,9 @@ export default function Favorites() {
           onPress={() => navigation.goBack()}>
           <Icon name="arrow-left" size={30} color="#fff" />
         </TouchableOpacity> */}
-        <TouchableOpacity style={styles.action} onPress={getStorage}>
+        {/* <TouchableOpacity style={styles.action} onPress={getStorage}>
           <Icon name="search" size={30} color="#fff" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         {/* <TouchableOpacity style={styles.action} onPress={clearStore}>
           <Icon name="close" size={30} color="#fff" />
         </TouchableOpacity> */}
