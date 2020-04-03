@@ -43,7 +43,7 @@ export default function Home() {
       );
     }
   }
-  function avatar() {
+  const avatar = () => {
     if (user.avatar_url) {
       return (
         <Animated.Image
@@ -58,17 +58,16 @@ export default function Home() {
           source={{uri: user.avatar_url}}
         />
       );
-    } else {
-      return (
-        <Icon
-          name="user-circle-o"
-          color="grey"
-          size={210}
-          style={styles.Icone_avatar}
-        />
-      );
     }
-  }
+    return (
+      <Icon
+        name="user-circle-o"
+        color="grey"
+        size={210}
+        style={styles.Icone_avatar}
+      />
+    );
+  };
 
   const fadeAnim = useRef(new Animated.Value(0.3)).current;
 
