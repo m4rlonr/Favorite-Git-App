@@ -33,6 +33,7 @@ export default function Favorites() {
       id: i,
       name: dev.name,
       url: dev.html_url,
+      login: userName.login,
     };
     // Fazer validação ao inserir
     try {
@@ -41,7 +42,6 @@ export default function Favorites() {
     } catch (error) {
       console.log(error);
     }
-    console.log(i);
     i += 1;
   };
 
