@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
@@ -23,19 +22,20 @@ export default function Favorites() {
     } catch (error) {
       console.log(error);
     }
+    console.log(lista);
   }
 
   useEffect(() => {
     getStorage();
   });
 
-  function OpenWebView(item){
+  function OpenWebView(item) {
     let login = item.login;
     let repo = item.url;
     navigation.navigate('detailRepo', {repo, login});
   }
 
-  async function removeStorage(id){
+  async function removeStorage(id) {
     Alert.alert('Removendo Repositório.');
     await AsyncStorage.removeItem(id);
   }
@@ -48,11 +48,7 @@ export default function Favorites() {
       <ScrollView showsVerticalScrollIndicator={false} style={styles.repos}>
         {lista.map(item => (
           <View key={item.id} style={styles.viewMap}>
-            <Text
-              style={styles.headerText}
-              onPress={() =>
-                OpenWebView(item)
-              }>
+            <Text style={styles.headerText} onPress={() => OpenWebView(item)}>
               {item.name}
             </Text>
             <TouchableOpacity>
