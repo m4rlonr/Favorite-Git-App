@@ -8,7 +8,6 @@ import api from '../../services/api';
 
 import styles from './styles';
 
-let i = 0;
 export default function Favorites() {
   const navigation = useNavigation();
   const route = useRoute();
@@ -30,19 +29,19 @@ export default function Favorites() {
 
   const setStore = async dev => {
     let item = {
-      id: i,
+      id: dev.id,
       name: dev.name,
       url: dev.html_url,
       login: userName.login,
     };
+    console.log(item);
     // Fazer validação ao inserir
     try {
-      await AsyncStorage.setItem(`${i}`, JSON.stringify(item));
+      await AsyncStorage.setItem(`${dev.id}`, JSON.stringify(item));
       Alert.alert('Adicionado com Sucesso');
     } catch (error) {
       console.log(error);
     }
-    i += 1;
   };
 
   return (
