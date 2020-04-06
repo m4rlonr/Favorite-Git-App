@@ -34,8 +34,7 @@ export default function Favorites() {
       url: dev.html_url,
       login: userName.login,
     };
-    console.log(item);
-    // Fazer validação ao inserir
+
     try {
       await AsyncStorage.setItem(`${dev.id}`, JSON.stringify(item));
       Alert.alert('Adicionado com Sucesso');

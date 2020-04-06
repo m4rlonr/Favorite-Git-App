@@ -1,4 +1,5 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+// import React, {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {View, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -25,10 +26,6 @@ export default function Favorites() {
     console.log(lista);
   }
 
-  useEffect(() => {
-    getStorage();
-  });
-
   function OpenWebView(item) {
     let login = item.login;
     let repo = item.url;
@@ -39,6 +36,22 @@ export default function Favorites() {
     Alert.alert('Removendo Repositório.');
     await AsyncStorage.removeItem(id);
   }
+
+  async function clearAll() {
+    Alert.alert('Todos os favoritos serão removidos.');
+    await AsyncStorage.clear();
+
+    while (lista.length) {
+      lista.pop();
+    }
+  }
+
+  // useEffect(() => {
+  //   async function loadStorage() {
+  //     await getStorage();
+  //   }
+  //   loadStorage();
+  // });
 
   return (
     <View style={styles.dados}>
@@ -62,9 +75,14 @@ export default function Favorites() {
           </View>
         ))}
       </ScrollView>
-      <TouchableOpacity style={styles.action} onPress={getStorage}>
-        <Icon name="search" size={30} color="#fff" />
-      </TouchableOpacity>
+      <View style={styles.actions}>
+        <TouchableOpacity style={styles.action} onPress={getStorage}>
+          <Icon name="search" size={30} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.action} onPress={clearAll}>
+          <Icon name="trash" size={30} color="#fff" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
