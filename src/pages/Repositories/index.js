@@ -43,6 +43,12 @@ export default function Favorites() {
     }
   };
 
+  function OpenWebView(item) {
+    let login = item.owner.login;
+    let repo = item.name;
+    navigation.navigate('detailRepo', {login, repo});
+  }
+
   return (
     <View style={styles.dados}>
       <View style={styles.header}>
@@ -52,11 +58,7 @@ export default function Favorites() {
       <ScrollView showsVerticalScrollIndicator={false} style={styles.repos}>
         {user.map(dev => (
           <View key={dev.id} style={styles.viewMap}>
-            <Text
-              style={styles.headerText}
-              onPress={() =>
-                navigation.navigate('detailRepo', {dev, userName})
-              }>
+            <Text style={styles.headerText} onPress={() => OpenWebView(dev)}>
               {dev.name}
             </Text>
             <TouchableOpacity>
