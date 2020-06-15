@@ -7,7 +7,6 @@ import styles from './styles';
 export default function Profile() {
   const route = useRoute();
 
-  console.log(route);
   const myrepos = route.params.repo;
   const username = route.params.login;
   return (
